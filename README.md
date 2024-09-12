@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📰 NewsHub
 
-## Getting Started
+NewsHub is a modern web application delivering the latest news worldwide, built with Next.js and React.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🌍 Latest News
+- 🔝 Top Stories
+- 🔍 Search Functionality
+- 📱 Responsive Design
+- 🎨 Custom UI Components
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Frontend: Next.js 14, React 18
+- Styling: Tailwind CSS
+- API: GNews API
+- Fonts: Custom Geist Sans and Geist Mono
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🚀 Getting Started
 
-## Learn More
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Set up environment variables in `.env.local`
+4. Run the development server: `npm run dev`
+5. Open `http://localhost:3000` in your browser
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/src/app`: Next.js app router and main pages
+- `/src/components`: Reusable React components
+- `/src/lib`: Utility functions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🔗 API Routes
 
-## Deploy on Vercel
+The main API endpoint handles three types of requests:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Latest news
+- Top headlines
+- Search results
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🖼️ UI Components
+
+Custom card components are used for displaying news articles.
+
+## 💅 Styling
+
+Global styles are managed using Tailwind CSS.
+
+## 🔤 Custom Fonts
+
+The project uses custom Geist Sans and Geist Mono fonts.
+
+## 🤝 Contributing
+
+Contributions are welcome. Please submit a Pull Request.
+
+## 📄 License
+
+This project is open source under the MIT License.
