@@ -5,44 +5,42 @@ import NewsCard from "@/components/NewsCard";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { useParams, useRouter } from "next/navigation";
 
 const TopNews = () => {
   const [news, setNews] = useState([]);
-  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [totalArticles, setTotalArticles] = useState(0);
-  const [hasMore, setHasMore] = useState(true);
+  const [totalPages, setTotalPages] = useState(25);
+  const params = useParams();
+  const router = useRouter();
+  const page = parseInt(params.page) || 1;
 
-  const fetchNews = async (pageNum) => {
+  const fetchNews = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`/api/news?type=top&page=${pageNum}&max=4`);
+      const response = await fetch(`/api/news?type=top&page=1&max=100`);
       if (!response.ok)
         throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
-      setTotalArticles(data.totalArticles);
-      setHasMore(pageNum * 4 < data.totalArticles);
       setNews(data.articles);
-      return data.articles;
+      setTotalPages(Math.min(25, Math.ceil(data.totalArticles / 4)));
     } catch (error) {
-      return [];
+      console.error("Error fetching news:", error);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchNews(page);
-  }, [page]);
+    fetchNews();
+  }, []);
 
-  const loadMore = () => {
-    if (hasMore && !loading) {
-      setPage((prevPage) => prevPage + 1);
+  const displayedNews = news.slice((page - 1) * 4, page * 4);
+
+  const changePage = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages && !loading) {
+      router.push(`/topnews/${newPage}`);
     }
-  };
-
-  const loadPrevious = () => {
-    if (page > 1 && !loading) setPage((prevPage) => prevPage - 1);
   };
 
   return (
@@ -50,21 +48,27 @@ const TopNews = () => {
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8 text-center">Top News</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
-          {news.map((article, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {displayedNews.map((article, index) => (
             <NewsCard key={`${article.url}-${index}`} article={article} />
           ))}
         </div>
-        <div className="mt-8 flex justify-center space-x-4">
-          <Button onClick={loadPrevious} disabled={loading || page === 1}>
+        <div className="mt-8 flex justify-center space-x-2">
+          <Button
+            onClick={() => changePage(page - 1)}
+            disabled={page === 1 || loading}
+          >
             Previous
           </Button>
-          <Button onClick={loadMore} disabled={loading || !hasMore}>
+          <Button
+            onClick={() => changePage(page + 1)}
+            disabled={page === totalPages || loading}
+          >
             Next
           </Button>
         </div>
         <p className="mt-4 text-center text-sm text-gray-600">
-          Page {page} of {Math.ceil(totalArticles / 4)}
+          Page {page} of {totalPages}
         </p>
       </main>
       <Footer />

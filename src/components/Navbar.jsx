@@ -32,14 +32,14 @@ const Navbar = () => {
                   Home
                 </Link>
                 <Link
-                  href="/latestnews"
-                  className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  href="/latestnews/1"
+                  className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Latest News
                 </Link>
                 <Link
-                  href="/topnews"
-                  className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+                  href="/topnews/1"
+                  className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Top News
                 </Link>
@@ -85,13 +85,13 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            href="/latest"
+            href="/latestnews/1"
             className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
           >
             Latest News
           </Link>
           <Link
-            href="/top"
+            href="/topnews/1"
             className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium"
           >
             Top News

@@ -29,8 +29,8 @@ export async function GET(request) {
     const params = {
       lang: "en",
       country: "us",
-      max,
-      page,
+      max: 100, // Fetch 100 articles at once
+      page: 1, // Always fetch first page
     };
 
     switch (type) {

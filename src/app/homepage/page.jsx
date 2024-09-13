@@ -22,7 +22,7 @@ const HomePage = () => {
             <p className="mb-6 text-blue-100">
               Dive into the most important stories shaping our world right now.
             </p>
-            <Link href="/topnews" className="inline-block">
+            <Link href="/topnews/1" className="inline-block">
               <button className="bg-white text-blue-600 font-semibold py-2 px-6 rounded-full hover:bg-blue-100 transition-colors">
                 Read Now
               </button>
@@ -33,7 +33,7 @@ const HomePage = () => {
             <p className="mb-6 text-green-100">
               Stay ahead with real-time news updates as events unfold globally.
             </p>
-            <Link href="/latestnews" className="inline-block">
+            <Link href="/latestnews/1" className="inline-block">
               <button className="bg-white text-green-600 font-semibold py-2 px-6 rounded-full hover:bg-green-100 transition-colors">
                 Get Updates
               </button>
