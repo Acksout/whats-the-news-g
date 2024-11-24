@@ -2,6 +2,9 @@
 
 NewsHub is a modern web application delivering the latest news worldwide, built with Next.js and React.
 
+# 🎥 Video
+[![Watch the video](https://i.imgur.com/ILRo9ZX.png)](https://youtu.be/Fp_hzCEQqF4)
+
 ## ✨ Features
 
 - 🌍 Latest News
